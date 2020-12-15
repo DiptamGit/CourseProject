@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search Tweets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Eleventh navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Twitter Data Analyzer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample09">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" aria-current="page" href="search.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="monitor.html">Monitoring</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-bs-toggle="dropdown"
+                                aria-expanded="false">More</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown09">
+                                <li><a class="dropdown-item" href="#">ReadMe</a></li>
+                                <li><a class="dropdown-item" href="#">Github</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form>
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="bg-light p-5 rounded">
+            <div class="row g-3 mt-2 col-md-12">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter you hashtags with comma"
+                        aria-label="hashtags" id="hashtags" aria-describedby="button-addon2">
+                </div>
+                <div class="col-md-auto">
+                    <button class="btn btn-primary" type="button" id="button-addon1">Start Monitoring</button>
+                </div>
+                <div class="col-md-auto">
+                    <button class="btn btn-danger" type="button" id="button-addon2">Stop Monitoring</button>
+                </div>
+            </div>
+            <div class="row g-3 mt-2 col-md-12" id="monitor">
+                <div class="col-md-auto">
+                    <p>monitoring started</p>
+                </div>
+                <div class="col-md-auto">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Diptam Sarkar, UIUC</div>
+                    <div>
+                        <a href="#" id="privacy">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="search.js"></script>
+    <script src="monitor.js"></script>
+</body>
+
+</html>
