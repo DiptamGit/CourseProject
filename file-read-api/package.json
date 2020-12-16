@@ -1,0 +1,16 @@
+{
+  "name": "file-reader",
+  "version": "1.0.0",
+  "description": "It will read the tweet output file and send as a json",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diptam Sarkar, UIUC",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "readline": "^1.3.0"
+  }
+}

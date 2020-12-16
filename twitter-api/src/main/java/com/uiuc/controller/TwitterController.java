@@ -33,15 +33,17 @@ import static java.util.stream.Collectors.toCollection;
 @Slf4j
 public class TwitterController {
 
-    @Autowired
-    private TwitterService twitterService;
-
     @GetMapping(value = "/tweets/hashtags/{hashtags}")
     public Response streamTweets(@PathVariable String[] hashtags){
         ArrayList<String> tweets = new ArrayList<>();
-        Response response = null;
+        Response response = new Response("Success", "None");
        final ArrayList<String> hashTagsList = Arrays.stream(hashtags).map(e -> '#' + e).collect(toCollection(ArrayList::new));
        System.out.println(hashTagsList);
+        try {
+            TwitterService.run(hashTagsList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return response;
     }
 
@@ -58,7 +60,7 @@ public class TwitterController {
                         .setCookieSpec(CookieSpecs.STANDARD).build())
                 .build();
 
-        StringBuilder uri = new StringBuilder().append("https://api.twitter.com/1.1/search/tweets.json?q=%23").append(keyword).append("&result_type=").append(type).append("&count=100&lang=en&tweet_mode=extended");
+        StringBuilder uri = new StringBuilder().append("https://api.twitter.com/1.1/search/tweets.json?q=%23").append(keyword).append("&result_type=").append(type).append("&count=100&lang=en");
         log.info(uri.toString());
 
 

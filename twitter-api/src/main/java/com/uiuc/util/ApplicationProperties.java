@@ -12,7 +12,7 @@ import java.util.Properties;
 public class ApplicationProperties {
 
     private static HashMap<String,String> applicationPropertiesCache = new HashMap<>();
-    private static final String propertyFile = "twitter/src/main/resources/application.properties";
+    private static final String propertyFile = "src/main/resources/application.properties";
 
     public static HashMap<String, String> getProperties(){
         if (applicationPropertiesCache.isEmpty()){
