@@ -88,7 +88,7 @@ public class TwitterService {
     }
 
     private static void writeToFile(String content) throws IOException {
-        Path path = Paths.get("src/main/resources/static/file-read-api/output.txt");
+        Path path = Paths.get("C:/Users/dipta/OneDrive/Documents/MCS/CS 410/CourseProject/file-read-api/output.txt");
         Files.write(path, content.getBytes(), StandardOpenOption.APPEND);
     }
 }

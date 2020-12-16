@@ -49,8 +49,8 @@
         <div class="bg-light p-5 rounded">
             <div class="row g-3 mt-2 col-md-12">
                 <div class="col-md-2">
-                    <input type="text" class="form-control" placeholder="Enter your hashtag"
-                        aria-label="hashtags" id="hashtags" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" placeholder="Enter your hashtag" aria-label="hashtags"
+                        id="hashtags" aria-describedby="button-addon2">
                 </div>
                 <div class="col-md-auto">
                     <button class="btn btn-primary" type="button" id="button-addon1">Start Monitoring</button>
@@ -58,18 +58,69 @@
                 <div class="col-md-auto">
                     <button class="btn btn-danger" type="button" id="button-addon2">Stop Monitoring</button>
                 </div>
+                <div class="col-md-auto">
+                    <button class="btn btn-dark" type="button" id="button-addon3">Refresh Feed</button>
+                </div>
             </div>
             <div class="row g-3 mt-2 col-md-12" id="monitor">
-                <div class="col-md-auto">
-                    <p>monitoring started</p>
+                <div class="col-md-auto" id="monitorText">
                 </div>
                 <div class="col-md-auto">
                     <div class="spinner-border text-warning" role="status">
                         <span class="visually-hidden">Loading...</span>
-                      </div>
+                    </div>
                 </div>
             </div>
 
+            <div class="row g-3 mt-2 col-md-12">
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Total</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="total"></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card text-dark bg-info">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Positive</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="positive"></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card text-white bg-danger">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Negetive</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="negetive"></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
 
 
