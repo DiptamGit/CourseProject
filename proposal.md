@@ -1,4 +1,4 @@
-# Sentiment and Speech Analysis 
+# Sentiment Analyis and Profanity Analysis 
 ### By: Riya Gupta, Chitra Uppalapati, and Diptam Sarkar
 
 What are the names and NetIDs of all your team members? Who is the captain? The captain will have more administrative duties than team members.
