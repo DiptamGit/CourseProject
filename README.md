@@ -1,6 +1,7 @@
 # About the project
+> There is a growing trend amongst enterprises now a days to do market study using sentiment analysis and profanity checking, when any company releases a new product for announce a merger, they normally introduce a hashtags or campaign slogan, and leveraging that they try to collect user data from social media to get an overview. Our goal pf this project was to provide a unified solution, which anyone can use for researching a keyword or hashtags and do sentiment analysis on that dataset with a view. We tried to make our entire app dynamic and, so that it will readily deployable and open to any further enhancement.
 
-### Installation Instructions!
+### Installation Instructions
 To run the code in your local system you will need four things, assuming you already have git installed
 
   - Java 8
@@ -22,3 +23,49 @@ $ python –version
 $ maven -v
 ```
 If all of them responded correctly, please proceed to the next section
+
+
+### How to run the application
+Clone the application and you should see three main folder
+ - data analyzer - python web and sentiment analysis module
+ - file-read-api - node api for monitoring
+ - twitter-api - spring web module for two twitter api and web views
+
+Open three command prompt, and cd into three separte folder
+
+run below from twitter api
+```sh
+mvn -v spring-boot:run
+```
+run below from data analyzer 
+```sh
+pip install flask
+pip install nltk
+pip install preprocessor
+pip install profanity-check
+python api.py
+```
+run below from file-read-api
+```sh
+node app.js
+```
+ if eveything is running and you can see no error in terminal, open any web browser(except older ie) and type (http://localhost:8080/search.html)
+ 
+ ### Tools/Languages
+  - Intellij IDEA
+  - VS Code
+  - Java
+  - Spring
+  - HTML/JS/CSS
+  - Jquery
+  - Bootstrap
+  - NodeJs
+  - Python
+
+### Team
+ - Diptam Sarkar
+ - Riya Gupta
+ - Chitra Uppalapati
+ 
+### Credits
+We referred a ideas and codes for inspriation from Spring official documentation, NLTK sentiment analyis examples, Bootstrap 5 docs, freecodecamp sentiment analysis youtube videos
