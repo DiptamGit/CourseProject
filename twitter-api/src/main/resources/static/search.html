@@ -74,12 +74,18 @@
                     <div class="col-md-auto">
                         <input class="btn btn-primary" type="submit" value="Search" id="search">
                     </div>
+                    <div class="col-md-auto">
+                        <input class="btn btn-primary" type="submit" value="Sentiment Analysis" id="searchSentiment">
+                    </div>
+                    <div class="col-md-auto">
+                        <input class="btn btn-primary" type="submit" value="Profanity Check" id="searchProfanity">
+                    </div>
                     <div class="col-md-auto" id="flex2">
                         <div class="d-flex p-2 text-danger">Please use a keyword !</div>
                     </div>
                 </div>
 
-                <table class="table table-secondary table-striped mt-4 col-md-12" id="tweetTable">
+                <table class="table table-secondary table-striped table-bordered mt-4 col-md-12" id="tweetTable">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -87,6 +93,48 @@
                             <th>Location</th>
                             <th>Timestamp</th>
                             <th>Tweet</th>
+                        </tr>
+                    </thead>
+                    <tbody> </tbody>
+                </table>
+
+                <table class="table table-secondary table-bordered mt-4 col-md-12" id="searchSentimentTable">
+                    <thead>
+                        <tr class="table-info">
+                            <th>#</th>
+                            <th>Tweet</th>
+                            <th>Sentiment</th>
+                            <th>User Response</th>
+                        </tr>
+                    </thead>
+                    <tbody> </tbody>
+                </table>
+                <table class="table table-secondary table-bordered mt-4 col-md-12" id="profanityTable">
+                    <thead>
+                        <tr class="table-info">
+                            <th>#</th>
+                            <th>Tweet</th>
+                            <th>Prediction</th>
+                            <th>Prediction Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody> </tbody>
+                </table>
+
+                <div class="row g-3 mt-2 col-md-12" id="eval">
+                    <div class="col-md-auto">
+                        <div class="col-md-auto">
+                            <input class="btn btn-primary" type="submit" value="Evaluate" id="calcEval">
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-secondary table-bordered mt-4 col-md-12" id="evalTable">
+                    <thead>
+                        <tr class="bg-primary">
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1 Score</th>
                         </tr>
                     </thead>
                     <tbody> </tbody>

@@ -1,8 +1,13 @@
 $(document).ready(function () {
 
+    $('#monitor').hide();
+    $('#span').hide();
+    $('#sentimentTable').hide();
+    $('#loading').hide();
+
     $('#button-addon3').click(function () {
         $.ajax({
-            url: 'http://localhost:3000/tweets',
+            url: 'http://localhost:3000/tweets/monitor',
             type: 'get',
             success: function (data) {
                 $('#total').empty().append(data.length);
@@ -11,10 +16,51 @@ $(document).ready(function () {
         });
     });
 
+    $('#button-addon4').click(function () {
+        $("#sentimentTable tbody").empty();
+        console.log('Here at sentiment')
+        $.ajax({
+            url: 'http://127.0.0.1:5000/sentiment/monitor',
+            type: 'get',
+            beforeSend: function(){
+                $('#loading').show();
+               
+            },
+            complete: function(){
+                $('#loading').hide();
+             },
+            success: function (data) {
+                //console.log(data);
+                let output = JSON.parse(data);
+                let count = 1;
+                output.forEach(function(ele) {
+                    if (ele.tweet.length < 2) {
+                        console.log("skipping empty record")
+                    }else{
+                        if(ele.sentiment == 'Positive'){
+                            $('#sentimentTable tbody').append("<tr><td class='table-dark'>"+ count + 
+                                                  "</td><td class='table-light'>"+ ele.tweet + "</td><td class='table-primary'>" + 
+                                                  ele.sentiment + "</td></tr>");
+                        }
+                        if(ele.sentiment == 'Negative'){
+                            $('#sentimentTable tbody').append("<tr><td class='table-dark'>"+ count + 
+                                                  "</td><td class='table-light'>"+ ele.tweet + "</td><td class='table-danger'>" + 
+                                                  ele.sentiment + "</td></tr>");
+                        }
+                    }
 
-    $('#monitor').hide();
+                    count++;
+                 });
+                $('#sentimentTable').show();
+            }
+        });
+    });
+
 
     $("#button-addon1").click(function () {
+        $('#sentimentTable').hide();
+        $('#total').empty();
+        $('#span').show();
         startMonitoring();
         let hashtags = $("#hashtags").val();
         console.log(hashtags);
@@ -61,9 +107,8 @@ $(document).ready(function () {
 
 
 function fetchTweets() {
-    shouldMonitor = true;
     $.ajax({
-        url: 'http://localhost:3000/tweets',
+        url: 'http://localhost:3000/tweets/monitor',
         type: 'get',
         success: function (data) {
             $('#total').empty().append(data.length);

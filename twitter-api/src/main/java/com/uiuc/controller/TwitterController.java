@@ -20,6 +20,7 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
@@ -27,6 +28,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.toCollection;
 
 @RestController
@@ -53,7 +55,8 @@ public class TwitterController {
         String bearerToken = "AAAAAAAAAAAAAAAAAAAAADUyKQEAAAAAAY45t5wm0Vu4G05Oiv%2FWWP22ab4%3DXRYG1KfP77zdEZHjLKtDluiB6gYkw4N3nJGrK1P5FMXcjJTtGM";
         String searchResponse = null;
         Response response = null;
-        ArrayList<Tweet> tweets = new ArrayList<>();
+        ArrayList<Tweet> tweetList = new ArrayList<>();
+        ArrayList<String> tweets = new ArrayList<>();
 
         HttpClient httpClient = HttpClients.custom()
                 .setDefaultRequestConfig(RequestConfig.custom()
@@ -79,16 +82,25 @@ public class TwitterController {
                 JSONParser parser = new JSONParser();
                 JSONObject root = (JSONObject) parser.parse(searchResponse);
                 JSONArray statues = (JSONArray) root.get("statuses");
+                int count = 0;
                 statues.forEach(e -> {
                     JSONObject status = (JSONObject) e;
                     JSONObject user = (JSONObject) status.get("user");
+                    log.info(status.get("text").toString());
                     Tweet tweet = new Tweet(status.get("text").toString(),status.get("created_at").toString(),user.get("name").toString(),user.get("location").toString());
-                    tweets.add(tweet);
+                    tweets.add(status.get("text").toString());
+                    tweetList.add(tweet);
                 });
             }
-            response = new Response(tweets, "Success", "None");
+            log.info(String.valueOf(tweets));
+            try {
+                TwitterService.writeToFile(tweets);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            response = new Response(tweetList,"Success", "None");
         } catch (Exception e) {
-            response = new Response(tweets, "Failed", e.toString());
+            response = new Response(tweetList,"Failed", e.toString());
             e.printStackTrace();
         }
         return response;
