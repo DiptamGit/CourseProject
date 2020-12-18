@@ -68,4 +68,4 @@ node app.js
  - Chitra Uppalapati
  
 ### Credits
-We referred a ideas and codes for inspriation from Spring official documentation, NLTK sentiment analyis examples, Bootstrap 5 docs, freecodecamp sentiment analysis youtube videos
+We referred ideas and codes for inspiration from Spring official documentation, NLTK sentiment analyis examples, Bootstrap 5 docs, freecodecamp sentiment analysis youtube videos
